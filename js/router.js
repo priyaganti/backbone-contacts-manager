@@ -2,7 +2,7 @@
 Ex: 'contacts' is the route and
     'displayContacts' defined inside the app.js is the function that needs to be executed on going to contacts route
 */
-ContactsManger.Router = Backbone.Router.extend ({
+ContactsManager.Router = Backbone.Router.extend({
   routes: {
     '': 'home',
     'contacts' : 'displayContacts',
