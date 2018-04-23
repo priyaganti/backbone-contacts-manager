@@ -6,9 +6,58 @@
     <script src="bower_components/jquery/dist/jquery.min.js"></script>
     <script src="bower_components/underscore/underscore-min.js"></script>
     <script src="bower_components/backbone/backbone-min.js"></script>
-    <link rel="stylesheet" href='bower_components/bootstrap/dist/bootstrap.min.css'/>
+    <link rel="stylesheet" href='bower_components/bootstrap/dist/css/bootstrap.min.css'/>
   </head>
   <body>
     <h1>Contacts Manager</h1>
+
+    <div class="container">
+      <div class="row">
+        <div class="col-xs-12 main-container">
+        </div> <!-- display the template for allContacts view in between the div tags here -->
+      </div>
+    </div>
+
+    <!-- Template for the allContacts view -->
+    <script type="text/template" id="tpl-contacts">
+      <h2>List of Contacts</h2>
+      <a href="#contacts/new">Add Contact</a>
+      <!-- append each contact view as a li element within the ul tag -->
+      <ul class="contacts-container"></ul>
+    </script>
+
+
+    <!-- Template for contact view -->
+    <script type="text/template" id="tpl-contact">
+      <h2><%- name %></h2>
+    </script>
+
+    <script src="./js/app.js"></script>
+    <script src="./js/models/contact.js"></script>
+    <script src="./js/collections/contacts.js"></script>
+    <script src="./js/views/contact.js"></script>
+    <script src="./js/views/allContacts.js"></script>
+    <script src="./js/router.js"></script>
+
+    <script>
+      $(function(){
+        ContactsManager.start({
+          contacts: [
+            {
+              id: 1,
+              name: 'John Doe',
+              tel: '415-123-4567',
+              email: 'jdoe@yahoo.com'
+            },
+            {
+              id: 2,
+              name: 'Joson Paddock',
+              tel: '415-325-7654',
+              email: 'jpaddock@gmail.com'
+            }
+          ]
+        });
+      });
+    </script>
   </body>
 </html>
